@@ -58,7 +58,7 @@ int main()
 	int counter = 0;
 	std::cout << "Hello there Mr. Wiskers \n"; //Random intro
 	std::cout << "Enter in the amount of numbers you want sorted \n";
-	std::cin >> counter;
+	std::cin >> counter; //Might want to fix something here
 
 	hello = new float[counter];
 	system("cls");
