@@ -98,18 +98,19 @@ int main()
         for(int count = 0; count < counter; count++) //Display the sorted list
                 std::cout << hello[count] << ' ';
 
-		system("Pause");
+	system("Pause");
 
-		std::cout << "Now, check for a value. \n";
-		std::cout << "Check for: ";
-		std::cin >> check;
-		answer = binarySearch(hello, counter, check);
-		if(answer)
-			std::cout << "It is there! \n";
-		else
-			std::cout << "It isn't there! \n";
+	std::cout << "Now, check for a value. \n";
+	std::cout << "Check for: ";
+	std::cin >> check;
+	
+	answer = binarySearch(hello, counter, check);
+	
+	if(answer)
+		std::cout << "It is there! \n";
+	else
+		std::cout << "It isn't there! \n";
 
-        std::cout << "\n";
         system("Pause");
 
         return 0;
