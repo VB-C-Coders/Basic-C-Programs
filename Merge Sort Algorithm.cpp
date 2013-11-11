@@ -52,31 +52,65 @@ void mergeSort(float *sort, int size)
 	delete Half2; 
 }
 
-int main()
+bool binarySearch(float *sort, int size, float target)
 {
-	float *hello;
-	int counter = 0;
-	std::cout << "Hello there Mr. Wiskers \n"; //Random intro
-	std::cout << "Enter in the amount of numbers you want sorted \n";
-	std::cin >> counter; //Might want to fix something here
+	int first = 0, last = size, test;
 
-	hello = new float[counter];
-	system("cls");
+	if(size == 1 && sort[0] == target)
+		return true;
 
-	std::cout << "Now enter in the numbers \n"; //Take input
-	for(int count = 0; count < counter; count++) {
-	std::cout << "Number: ";
-	std::cin >> hello[count];
-	system("cls");
+	while(first + 1 < last)  
+	{
+		test = (first + last) / 2;
+		if(sort[test] > target)
+			last = test;
+		else
+			first = test;
 	}
 
-	mergeSort(hello, counter);
+	if(sort[first] == target)
+		return true;
+	else
+		return false;
+}
 
-	for(int count = 0; count < counter; count++) //Display the sorted list
-		std::cout << hello[count] << ' ';
+int main()
+{
+        float *hello;
+        int counter = 0, check = 0;
+		bool answer;
+        std::cout << "Hello there Mr. Wiskers \n"; //Random intro
+        std::cout << "Enter in the amount of numbers you want sorted \n";
+        std::cin >> counter; //Might want to fix something here
 
-	std::cout << "\n";
-	system("Pause");
+        hello = new float[counter];
+        system("cls");
 
-	return 0;
+        std::cout << "Now enter in the numbers \n"; //Take input
+        for(int count = 0; count < counter; count++) {
+        std::cout << "Number: ";
+        std::cin >> hello[count];
+        system("cls");
+        }
+
+        mergeSort(hello, counter);
+
+        for(int count = 0; count < counter; count++) //Display the sorted list
+                std::cout << hello[count] << ' ';
+
+		system("Pause");
+
+		std::cout << "Now, check for a value. \n";
+		std::cout << "Check for: ";
+		std::cin >> check;
+		answer = binarySearch(hello, counter, check);
+		if(answer)
+			std::cout << "It is there! \n";
+		else
+			std::cout << "It isn't there! \n";
+
+        std::cout << "\n";
+        system("Pause");
+
+        return 0;
 }
